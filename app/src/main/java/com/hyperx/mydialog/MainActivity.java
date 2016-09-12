@@ -5,10 +5,10 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DialogTitle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonSingle;
     Button buttonMulti;
     Button buttonCustom;
+    Button buttonCustom2;
 
 
     @Override
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSingle = (Button)findViewById(R.id.btnSingle);
         buttonMulti = (Button)findViewById(R.id.btnMulti);
         buttonCustom = (Button)findViewById(R.id.btnCustom);
+        buttonCustom2 = (Button)findViewById(R.id.btnCustom2);
 
         buttonSimple.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
                 dialog.setTitle("Login Dialog");
                 dialog.setContentView(R.layout.dialog_custom);
 
-                final EditText username = (EditText)dialog.findViewById(R.id.username);
-                final EditText password = (EditText)dialog.findViewById(R.id.password);
+                final EditText username = (EditText)dialog.findViewById(R.id.username2);
+                final EditText password = (EditText)dialog.findViewById(R.id.password2);
                 final Button buttonLogin = (Button)dialog.findViewById(R.id.login);
                 final Button buttonCancel = (Button)dialog.findViewById(R.id.cancel);
 
@@ -147,6 +149,40 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 buttonLogin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (username.getText().toString().equals("admin")&& password.getText().toString().equals("1234")){
+                            Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"Login Fail!",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                dialog.show();
+            }
+        });
+
+        buttonCustom2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(MainActivity.this);
+                dialog.setContentView(R.layout.dialog_custom2);
+
+                final ImageView logo = (ImageView)dialog.findViewById(R.id.logo);
+                final EditText username = (EditText)dialog.findViewById(R.id.username2);
+                final EditText password = (EditText)dialog.findViewById(R.id.password2);
+                final Button loginbtn = (Button)dialog.findViewById(R.id.loginbtn);
+                final Button closebtn = (Button)dialog.findViewById(R.id.closebtn);
+
+                closebtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+                loginbtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         if (username.getText().toString().equals("admin")&& password.getText().toString().equals("1234")){
