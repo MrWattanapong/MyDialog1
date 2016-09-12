@@ -2,6 +2,8 @@ package com.hyperx.mydialog;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -172,8 +174,8 @@ public class MainActivity extends AppCompatActivity {
                 final ImageView logo = (ImageView)dialog.findViewById(R.id.logo);
                 final EditText username = (EditText)dialog.findViewById(R.id.username2);
                 final EditText password = (EditText)dialog.findViewById(R.id.password2);
-                final Button loginbtn = (Button)dialog.findViewById(R.id.loginbtn);
-                final Button closebtn = (Button)dialog.findViewById(R.id.closebtn);
+                final FloatingActionButton loginbtn = (FloatingActionButton)dialog.findViewById(R.id.loginbtn);
+                final FloatingActionButton closebtn = (FloatingActionButton) dialog.findViewById(R.id.closebtn);
 
                 closebtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -187,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if (username.getText().toString().equals("admin")&& password.getText().toString().equals("1234")){
                             Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
+                            sendMethod(view);
                         }
                         else {
                             Toast.makeText(getApplicationContext(),"Login Fail!",Toast.LENGTH_LONG).show();
@@ -197,4 +200,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void sendMethod(View view){
+        Intent intent = new Intent(this,DisplayActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

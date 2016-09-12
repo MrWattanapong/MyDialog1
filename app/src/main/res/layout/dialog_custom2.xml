@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -34,33 +35,31 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_below="@+id/password2"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
         android:padding="10dp"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:id="@+id/linearLayout">
 
-        <Button
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:text="login"
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/loginbtn"
-            android:background="@drawable/roundbtn"
-            android:layout_below="@+id/password2"
+            android:layout_below="@+id/linearLayout"
             android:layout_alignParentStart="true"
-            android:padding="15dp" />
+            android:src="@drawable/login"
+            app:backgroundTint="#00ffc8" />
 
-        <Button
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:text="close"
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/closebtn"
-            android:background="@drawable/roundbtn"
-            android:layout_below="@+id/password2"
-            android:layout_toEndOf="@+id/loginbtn"
-            android:padding="15dp"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/close"
+            app:backgroundTint="#ff0011" />
     </LinearLayout>
 
 </RelativeLayout>
