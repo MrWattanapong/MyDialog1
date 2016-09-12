@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-                //dialog.show();
+                dialog.show();
             }
         });
     }
